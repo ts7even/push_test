@@ -37,10 +37,18 @@ def teacher_age():
     # 2 = '30 to 39 years'
     # 3 = '40 to 49 years'
     # 4 = '50 years or older'
-    age1 = np.array[0 : 29]
-    age2 = np.array[30 : 39]
-    age3 = np.array[40 : 49]
-    age4 = np.greater_equal(50)
+    data_age_1 = df[ (df['AGE_T']== 1)]
+    total_age_1 = data_age_1.shape[0]
+    data_age_2 = df[ (df['AGE_T']== 2)]
+    total_age_2 = data_age_2.shape[0]
+    data_age_3 = df[ (df['AGE_T']== 3)]
+    total_age_3 = data_age_3.shape[0]
+    data_age_4 = df[ (df['AGE_T']== 4)]
+    total_age_4 = data_age_4.shape[0]
+    print(f'There are {total_age_1} teachers that are 30 years or younger old')
+    print(f'There are {total_age_2} teachers that are between 30 to 39 years old')
+    print(f'There are {total_age_3} teachers that are 40 to 49 years old')
+    print(f'There are {total_age_4} teachers that are 50+ years old')
     
 
 
@@ -48,8 +56,9 @@ def teacher_age():
 def math_science_teachers():
     math_science_filter = df[ (df['ASSIGN'] == 2)]
     total_math_science_teachers = math_science_filter.shape[0]
-    print(f'This is the total amount of Math and Science Teachers: {total_math_science_teachers}')
+    print(f'This are {total_math_science_teachers} Math and Science Teachers')
 
 main()
 black_teachers()
+teacher_age()
 math_science_teachers()
